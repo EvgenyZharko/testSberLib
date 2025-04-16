@@ -24,7 +24,6 @@ import java.util.Optional;
 public class BookRentalServiceImpl implements BookRentalService {
 
     private final KafkaBookRentalMigrationProducer producer;
-
     private final BookRentalRepository bookRentalRepository;
     private final BookRepository bookRepository;
     private final SeasonTicketRepository seasonTicketRepository;
@@ -86,7 +85,7 @@ public class BookRentalServiceImpl implements BookRentalService {
         cacheSeasonTickets.clear();
     }
 
-    public void pushToTopic(KafkaMessageBookRentalMigration kafkaMessageBookRentalMigrations) {
+    public void loadBookRentals(KafkaMessageBookRentalMigration kafkaMessageBookRentalMigrations) {
         List<BookRentalMigration> rentals = kafkaMessageBookRentalMigrations.getBookRentalMigrations();
         for (BookRentalMigration rental : rentals) {
             producer.sendBookRentalToTopic(rental);

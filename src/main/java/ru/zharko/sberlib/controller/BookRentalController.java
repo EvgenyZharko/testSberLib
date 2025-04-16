@@ -5,5 +5,5 @@ import ru.zharko.sberlib.dto.kafkaMessage.KafkaMessageBookRentalMigration;
 
 @RequestMapping("/books-rental")
 public interface BookRentalController {
-    void pushToTopic(KafkaMessageBookRentalMigration kafkaMessageBookRentalMigrations);
+    void loadBookRentals(KafkaMessageBookRentalMigration kafkaMessageBookRentalMigrations);
 }
