@@ -28,3 +28,8 @@ spring:
 scheduler:
   notify-about-exceeding-rent:
     cron: "0 40 16 * * *"
+# swagger
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui/index.html
