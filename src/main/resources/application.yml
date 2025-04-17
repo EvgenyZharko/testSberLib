@@ -1,0 +1,38 @@
+server:
+  port: 80
+  servlet:
+    context-path: /lib/api
+spring:
+  # Data Base
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:8000/sber_lib_db
+    driver-class-name: org.postgresql.Driver
+  # Kafka
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic:
+      book-rental-migration: book-rental-migration
+    # Consumer
+    consumer:
+      group-id: book-rental-migration-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      max-poll-records: 50
+    # Producer
+    producer:
+      acks: all
+      retries: 3
+# scheduler
+scheduler:
+  notify-about-exceeding-rent:
+    cron: "0 40 16 * * *"
+# swagger
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui/index.html
+logging:
+  level:
+    root: debug
