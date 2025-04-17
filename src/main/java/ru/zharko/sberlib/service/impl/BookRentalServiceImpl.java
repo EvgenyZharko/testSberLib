@@ -1,6 +1,8 @@
 package ru.zharko.sberlib.service.impl;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.zharko.sberlib.dto.kafkaMessage.BookRentalMigration;
 import ru.zharko.sberlib.dto.kafkaMessage.KafkaMessageBookRentalMigration;
@@ -19,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class BookRentalServiceImpl implements BookRentalService {
@@ -28,12 +31,14 @@ public class BookRentalServiceImpl implements BookRentalService {
     private final BookRepository bookRepository;
     private final SeasonTicketRepository seasonTicketRepository;
 
+    @Transactional
     public void prepareBookRentalListFromKafka(List<BookRentalMigration> rentals) {
 
         Map<String, SeasonTicket> cacheSeasonTickets = new HashMap<>();
         Map<BookTitleAuthorMapKey, Book> cacheBooks = new HashMap<>();
 
         for (BookRentalMigration rental : rentals) {
+            log.debug("Начата обработка сообщения: {}", rental.toString());
 
             BookRental bookRental = new BookRental();
 

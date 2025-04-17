@@ -20,6 +20,7 @@ public class KafkaBookRentalMigrationProducer {
     }
 
     public void sendBookRentalToTopic(BookRentalMigration rent) {
+        log.debug("Отправлено сообщение в Kafka: {}", rent.toString());
         kafkaTemplate.send(topicName, rent);
     }
 }

@@ -1,6 +1,6 @@
 Согласно заданию, в приложении реализовано 2 эндпоинта'
 1. Поиск абонемента по ФИО. В том числе все книги в нем.
-    Доступен через: GET http://localhost:80/lib/api/season-tickets/by-client-name?clientName=Лягин Максим Павлович&withBooks=true
+    Доступен через: GET http://localhost:80/lib/api/season-ticket/by-client-name?clientName=Лягин Максим Павлович&withBooks=true
     
     где: 
         clientName - ФИО владельца абонемента 

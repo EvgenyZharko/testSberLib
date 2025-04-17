@@ -8,8 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Schema(description = "DTO для миграции данных о прокате книг из Kafka")
+@ToString
 @Getter
 @Setter
 @AllArgsConstructor

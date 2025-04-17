@@ -8,6 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import ru.zharko.sberlib.controller.impl.BookRentalControllerImpl;
 import ru.zharko.sberlib.dto.kafkaMessage.KafkaMessageBookRentalMigration;
 import ru.zharko.sberlib.service.BookRentalService;
+
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;

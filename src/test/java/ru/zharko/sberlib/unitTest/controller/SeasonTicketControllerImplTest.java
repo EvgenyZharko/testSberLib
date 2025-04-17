@@ -50,7 +50,7 @@ public class SeasonTicketControllerImplTest {
 
         String jsonSeasonTicketDo = objectMapper.writeValueAsString(seasonTicketDto);
 
-        mockMvc.perform(get("/season-tickets/by-client-name")
+        mockMvc.perform(get("/season-ticket/by-client-name")
                         .param("clientName", "Иванов")
                         .param("withBooks", "false"))
                 .andExpect(status().isOk())
@@ -65,7 +65,7 @@ public class SeasonTicketControllerImplTest {
 
         String jsonSeasonTicketDo = objectMapper.writeValueAsString(seasonTicketDtoWithBooks);
 
-        mockMvc.perform(get("/season-tickets/by-client-name")
+        mockMvc.perform(get("/season-ticket/by-client-name")
                         .param("clientName", "Иванов")
                         .param("withBooks", "true"))
                 .andExpect(status().isOk())

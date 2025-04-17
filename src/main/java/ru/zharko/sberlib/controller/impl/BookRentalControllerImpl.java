@@ -3,7 +3,6 @@ package ru.zharko.sberlib.controller.impl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +32,7 @@ public class BookRentalControllerImpl implements BookRentalController {
             }
     )
     @PostMapping("/load-book-rentals")
-    public void loadBookRentals(@Valid @RequestBody KafkaMessageBookRentalMigration kafkaMessageBookRentalMigrations) {
+    public void loadBookRentals(@RequestBody KafkaMessageBookRentalMigration kafkaMessageBookRentalMigrations) {
         bookRentalService.loadBookRentals(kafkaMessageBookRentalMigrations);
     }
 }
